@@ -1,4 +1,4 @@
-﻿Quicksilver 
+﻿Quicksilver Promotions
 ===========
 [![GitHub version](https://badge.fury.io/gh/episerver%2FQuicksilver.svg)](https://github.com/episerver/Quicksilver)
 [![License](http://img.shields.io/:license-apache-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0.html)
