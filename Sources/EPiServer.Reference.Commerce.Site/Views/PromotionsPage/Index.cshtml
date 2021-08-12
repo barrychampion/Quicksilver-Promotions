@@ -1,0 +1,73 @@
+﻿@using EPiServer.Commerce.Marketing
+@using EPiServer.Reference.Commerce.Site.Features.Shared.ViewModels
+@model PromotionsPageViewModel
+
+@{
+    IEnumerable<PromotionViewModel> promotions = Model.Promotions;
+    //IEnumerable<PromotionViewModel> campaignContent = Model.CampaignContent;
+}
+<div class="container-fluid">
+    <div class="row myPage">
+        <div class="col-xs-12 col-md-9">
+            <h2>@Html.PropertyFor(x => x.CurrentPage.Title)</h2>
+            @Html.PropertyFor(x => x.CurrentPage.MainBody)
+        </div>
+    </div>
+</div>
+
+@*<div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                @if (promotions.Any())
+                {
+                    <div id="promotion-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            @for (var i = 0; i < promotions.Count(); i++)
+                            {
+                                <div class="item" data-slide-number="@i">
+                                    <img src="@Url.ContentUrl(promotions.ElementAt(i).BannerImage)" />
+                                </div>}
+                        </div>
+                    </div>}
+            </div>
+        </div>
+    </div>*@
+
+    @foreach (var promotion in promotions)
+    {
+        <br />
+        <br />
+        <div class="container-fluid product-row">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img src="@Url.ContentUrl(promotion.BannerImage)" />
+                    <h2 class="hidden">@promotion.Name</h2>
+                    <br />
+                    <br />
+                    <br />
+
+                    @*@if (promotion.SelectionType == CatalogItemSelectionType.All)
+                        {
+                            <span class="product-brand">@Html.Translate("/PromotionsPage/Promotion/AllItems")</span><br />
+                        }*@
+                    @foreach (var promotionItem in promotion.Items)
+                    {
+                        <div class="jsProductTile product-row__tile col-xs-12 col-sm-6 col-lg-4">@{Html.RenderContentData(promotionItem, false);}</div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+
+@if (Functions.ShouldRenderTrackingSection())
+{
+    @section Tracking{
+        <script>
+            $(document).ready(function () {
+                var homeTrackingData = TrackingDataFactory.createHomeTrackingData();
+                epiRecommendations.track(homeTrackingData, null, 'web', Recommendations.render, { sectionMappings: [{ area: "homeWidget", selector: ".recommendations-right", numberOfItemsToRender: 6 }] })
+            });
+        </script>
+    }
+}
