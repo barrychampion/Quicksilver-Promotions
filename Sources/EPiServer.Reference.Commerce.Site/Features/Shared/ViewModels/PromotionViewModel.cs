@@ -16,8 +16,6 @@ namespace EPiServer.Reference.Commerce.Site.Features.Shared.ViewModels
 
         public IEnumerable<CatalogContentBase> Items { get; set; }
 
-        //public IEnumerable<PromotionViewModel> CampaignContent { get; set; }
-
         public CatalogItemSelectionType SelectionType { get; set; }
     }
 }
