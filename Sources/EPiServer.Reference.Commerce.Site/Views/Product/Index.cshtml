@@ -23,6 +23,42 @@
                 }
             </ul>
         </div>
+
+        @if (Model.Promos != null && Model.Campaigns.Any())
+        {
+            <ul class="list-unstyled">
+                @foreach (var item in Model.Promos)
+                {
+                    <li class="row">
+                        <span class="label label-warning">@item.Promotion.Name</span>
+                        <p>@item.Promotion.Description</p>
+                    </li>
+                }
+            </ul>
+        }
+
+        @*@if (Model.Promos != null && Model.Promos.Any())
+        {
+            <ul>
+                @foreach (var item in Model.Promos)
+                {
+                    <li><span class="pill">@item.Promotion.Name
+                            <p>@item.Promotion.Description</p></li>
+                }
+            </ul>
+        }*@
+        @*<p>Campaigns:</p>
+        @if (Model.Campaigns != null && Model.Campaigns.Any())
+        {
+            <ul>
+                @foreach (var item in Model.Campaigns)
+                {
+                <li>@item.Name 
+                    <p>@item.Description</p></li>
+                }
+            </ul>
+        }*@
+
     </div>
 
     <div class="col-xs-12 col-sm-8 product-info">

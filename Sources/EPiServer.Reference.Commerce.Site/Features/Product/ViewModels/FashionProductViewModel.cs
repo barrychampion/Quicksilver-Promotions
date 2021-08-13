@@ -1,4 +1,5 @@
-﻿using EPiServer.Reference.Commerce.Site.Features.Product.Models;
+﻿using EPiServer.Commerce.Marketing;
+using EPiServer.Reference.Commerce.Site.Features.Product.Models;
 using EPiServer.Reference.Commerce.Site.Features.Recommendations.ViewModels;
 using Mediachase.Commerce;
 using System.Collections.Generic;
@@ -17,5 +18,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.ViewModels
         public string Color { get; set; }
         public string Size { get; set; }
         public bool IsAvailable { get; set; }
+        public IEnumerable<RewardDescription> Promos { get; set; }
+        public IEnumerable<SalesCampaign> Campaigns { get; set; }
     }
 }

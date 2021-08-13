@@ -41,15 +41,18 @@
             <div class="row">
                 <div class="col-xs-12">
                     <img src="@Url.ContentUrl(promotion.BannerImage)" />
-                    <h2 class="hidden">@promotion.Name</h2>
+                    <br />
+                    <br />
+                    @* Discount Name *@
+                    <h2>@promotion.Name</h2>
                     <br />
                     <br />
                     <br />
 
                     @*@if (promotion.SelectionType == CatalogItemSelectionType.All)
-                        {
-                            <span class="product-brand">@Html.Translate("/PromotionsPage/Promotion/AllItems")</span><br />
-                        }*@
+        {
+            <span class="product-brand">@Html.Translate("/PromotionsPage/Promotion/AllItems")</span><br />
+        }*@
                     @foreach (var promotionItem in promotion.Items)
                     {
                         <div class="jsProductTile product-row__tile col-xs-12 col-sm-6 col-lg-4">@{Html.RenderContentData(promotionItem, false);}</div>

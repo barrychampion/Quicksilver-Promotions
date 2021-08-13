@@ -1,7 +1,12 @@
-﻿using EPiServer.Reference.Commerce.Site.Features.Product.Models;
+﻿using EPiServer.Commerce.Catalog.ContentTypes;
+using EPiServer.Commerce.Marketing;
+using EPiServer.Reference.Commerce.Site.Features.Product.Models;
 using EPiServer.Reference.Commerce.Site.Features.Product.ViewModelFactories;
 using EPiServer.Reference.Commerce.Site.Infrastructure.Facades;
+using EPiServer.ServiceLocation;
 using EPiServer.Web.Mvc;
+using Mediachase.Commerce;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
@@ -10,6 +15,9 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
     {
         private readonly bool _isInEditMode;
         private readonly CatalogEntryViewModelFactory _viewModelFactory;
+        private Injected<IPromotionEngine> _promoEngine;
+        private Injected<ICurrentMarket> _currentMarket;
+        private Injected<IContentRepository> _repo;
 
         public ProductController(IsInEditModeAccessor isInEditModeAccessor, CatalogEntryViewModelFactory viewModelFactory)
         {
@@ -33,6 +41,11 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
             {
                 return HttpNotFound();
             }
+
+            var market = _currentMarket.Service.GetCurrentMarket();
+            viewModel.Promos = _promoEngine.Service.Evaluate(currentContent.GetVariants(), market, market.DefaultCurrency, RequestFulfillmentStatus.All).Where(x => x.Promotion != null && x.Status == FulfillmentStatus.Fulfilled && (x.SavedAmount > 0 || x.UnitDiscount > 0 || x.Percentage > 0)).GroupBy(x => x.Promotion.ContentLink.ID).Select(x => x.First()).Take(10);
+
+            viewModel.Campaigns = viewModel.Promos.Select(x => _repo.Service.Get<SalesCampaign>(x.Promotion.ParentLink)).Distinct();
 
             if (useQuickview)
             {
