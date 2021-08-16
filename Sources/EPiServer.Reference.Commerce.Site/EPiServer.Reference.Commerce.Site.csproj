@@ -473,7 +473,9 @@
     <Compile Include="Features\Recommendations\ViewModels\RecommendationsViewModel.cs" />
     <Compile Include="Features\ResetPassword\ViewModels\ResetPasswordMailPageViewModel.cs" />
     <Compile Include="Features\Shared\Controllers\PromotionsPageController.cs" />
+    <Compile Include="Features\Shared\Controllers\SinglePromotionPageController.cs" />
     <Compile Include="Features\Shared\Controllers\StandardPageController.cs" />
+    <Compile Include="Features\Shared\Pages\SinglePromotionPage.cs" />
     <Compile Include="Features\Shared\Pages\PromotionsPage.cs" />
     <Compile Include="Features\Shared\Services\CatalogContentService.cs" />
     <Compile Include="Features\Shared\ViewModels\CountryRegionViewModel.cs" />
@@ -490,6 +492,7 @@
     <Compile Include="Features\ResetPassword\Controllers\ResetPasswordController.cs" />
     <Compile Include="Features\Shared\ViewModels\CountryViewModel.cs" />
     <Compile Include="Features\Shared\ViewModels\PageViewModel.cs" />
+    <Compile Include="Features\Shared\ViewModels\SinglePromotionPageViewModel.cs" />
     <Compile Include="Features\Shared\ViewModels\PromotionsPageViewModel.cs" />
     <Compile Include="Features\Shared\ViewModels\PromotionViewModel.cs" />
     <Compile Include="Features\Shared\ViewModels\StandardPageViewModel.cs" />
@@ -864,6 +867,7 @@
     <Content Include="Views\ErrorHandling\Forbidden.cshtml" />
     <Content Include="Views\ErrorHandling\OtherHttpStatusCode.cshtml" />
     <Content Include="Views\PromotionsPage\Index.cshtml" />
+    <Content Include="Views\SinglePromotionPage\Index.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

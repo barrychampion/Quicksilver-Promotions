@@ -8,7 +8,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Shared.Pages
     [ContentType(
         DisplayName = "Promotions page", 
         GUID = "58dcf4dd-c22d-4ee5-9879-3d9440b0daff",
-        Description = "The promotions page.", 
+        Description = "Disdplay a campaign with all discounts", 
         AvailableInEditMode = true)]
     [ImageUrl("~/styles/images/page_type.png")]
     public class PromotionsPage : PageData

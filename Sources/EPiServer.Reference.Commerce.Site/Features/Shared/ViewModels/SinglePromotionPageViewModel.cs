@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace EPiServer.Reference.Commerce.Site.Features.Shared.ViewModels
 {
-    public class PromotionsPageViewModel : PageViewModel<PromotionsPage>
+    public class SinglePromotionPageViewModel : PageViewModel<SinglePromotionPage>
     {
-        public PromotionsPage PromotionsPage { get; set; }
-        public IEnumerable<PromotionViewModel> Promotions { get; set; }
+        public SinglePromotionPage Current { get; set; }
+        public PromotionViewModel Promotion { get; set; }
         public IEnumerable<Recommendation> Recommendations { get; set; }
     }
 }
