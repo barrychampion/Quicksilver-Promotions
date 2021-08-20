@@ -83,6 +83,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Shared.Controllers
                 promotions.Add(new PromotionViewModel()
                 {
                     Name = promotionGroup.Key.Name,
+                    Description = promotionGroup.Key.Description,
                     BannerImage = promotionGroup.Key.Banner,
                     SelectionType = promotionItems.Condition.Type,
                     Items = GetProductsForPromotion(promotionItems)

@@ -20,6 +20,7 @@
     <div class="row">
         <div class="col-xs-12">
             <h2>@Model.Promotion.Name</h2>
+            <p>@Model.Promotion.Description</p>
             @if (Model.Promotion.SelectionType == CatalogItemSelectionType.All)
             {
                 <span class="product-brand">@Html.Translate("/StartPage/Promotion/AllItems")</span><br />

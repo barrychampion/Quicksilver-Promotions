@@ -10,6 +10,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Shared.ViewModels
     public class PromotionViewModel
     {
         public string Name { get; set; }
+        public string Description { get; set; }
 
         [UIHint(UIHint.Image)]
         public ContentReference BannerImage { get; set; }
