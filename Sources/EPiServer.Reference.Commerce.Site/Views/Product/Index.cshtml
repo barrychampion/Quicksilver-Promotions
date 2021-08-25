@@ -26,27 +26,14 @@
 
         @if (Model.Promos != null && Model.Campaigns.Any())
         {
-            <ul class="list-unstyled">
-                @foreach (var item in Model.Promos)
-                {
-                    <li class="row">
-                        <span class="label label-warning">@item.Promotion.Name</span>
-                        <p>@item.Promotion.Description</p>
-                    </li>
-                }
-            </ul>
+            foreach (var item in Model.Promos)
+            {
+                <div class="row">
+                    <span class="label label-warning">@item.Promotion.Name</span>
+                    <p>@item.Promotion.Description</p>
+                </div>
+            }
         }
-
-        @*@if (Model.Promos != null && Model.Promos.Any())
-        {
-            <ul>
-                @foreach (var item in Model.Promos)
-                {
-                    <li><span class="pill">@item.Promotion.Name
-                            <p>@item.Promotion.Description</p></li>
-                }
-            </ul>
-        }*@
         @*<p>Campaigns:</p>
         @if (Model.Campaigns != null && Model.Campaigns.Any())
         {
