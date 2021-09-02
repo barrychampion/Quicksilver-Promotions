@@ -50,7 +50,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Shared.Controllers
             };
             if (model.Promotions == null)
             {
-                Response.StatusCode = 404;
+                Response.Redirect("/");
                 return null;
             }
             return View(model);

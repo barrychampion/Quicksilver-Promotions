@@ -56,7 +56,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Shared.Controllers
             PromotionData promo;
             if (!_contentRepo.TryGet<PromotionData>(currentPage.PromotionContent, out promo))
             {
-                Response.StatusCode = 404;
+                Response.Redirect("/");
                 return null;
             }
             PromotionItems promoItems = _marketContentFilter.GetPromotionItemsForMarket(_currentMarket.GetCurrentMarket())
