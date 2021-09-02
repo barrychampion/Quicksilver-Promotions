@@ -43,6 +43,8 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.Controllers
             }
 
             var market = _currentMarket.Service.GetCurrentMarket();
+            //var testPromos = _promoEngine.Service.Evaluate(currentContent.GetVariants().First(), market, market.DefaultCurrency, RequestFulfillmentStatus.All).ToList();
+
             viewModel.Promos = _promoEngine.Service.Evaluate(currentContent.GetVariants(), market, market.DefaultCurrency, RequestFulfillmentStatus.All)
                 .Where(x => x.Promotion != null && x.Status == FulfillmentStatus.Fulfilled && (x.SavedAmount > 0 || x.UnitDiscount > 0 || x.Percentage > 0))
                 .GroupBy(x => x.Promotion.ContentLink.ID)
